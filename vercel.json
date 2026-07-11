@@ -1,18 +1,18 @@
 {
   "builds": [
     {
-      "src": "api/image.py",
+      "src": "api/wsgi.py",
       "use": "@vercel/python"
     }
   ],
   "rewrites": [
     {
-      "source": "/image.png",
+      "source": "/wsgi.png",
       "destination": "api/image.py"
     },
     {
       "source": "/(.*)",
-      "destination": "api/image.py"
+      "destination": "api/wsgi.py"
     }
   ]
 }
