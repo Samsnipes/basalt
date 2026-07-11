@@ -3,5 +3,11 @@
     "api/*.py": {
       "runtime": "@vercel/python"
     }
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api/wsgi"
+    }
+  ]
 }
